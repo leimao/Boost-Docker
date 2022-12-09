@@ -16,6 +16,7 @@ RUN apt-get update && \
         libtool \
         pkg-config \
         ca-certificates \
+        libssl-dev \
         wget \
         git \
         curl \
@@ -35,8 +36,12 @@ ENV LANGUAGE en_US.UTF-8
 
 # Install CMake
 RUN cd /tmp && \
-    wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-linux-x86_64.sh && \
-    bash cmake-${CMAKE_VERSION}-linux-x86_64.sh --prefix=/usr/local --exclude-subdir --skip-license && \
+    wget https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}.tar.gz && \
+    tar xzf cmake-${CMAKE_VERSION}.tar.gz && \
+    cd cmake-${CMAKE_VERSION} && \
+    ./bootstrap && \
+    make -j${NUM_JOBS} && \
+    make install && \
     rm -rf /tmp/*
 
 # Install Boost

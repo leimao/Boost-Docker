@@ -5,7 +5,7 @@
 int main()
 {
     std::string line;
-    boost::regex pat( "^Subject: (Re: |Aw: )*(.*)" );
+    boost::regex pat("^Subject: (Re: |Aw: )*(.*)");
 
     while (std::cin)
     {
