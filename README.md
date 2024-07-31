@@ -9,7 +9,7 @@ The Docker and CMake examples for [Boost C++ library](https://www.boost.org/).
 ### Set Boost Library Version
 
 ```bash
-$ BOOST_VERSION=1.85.0
+$ BOOST_VERSION=1.84.0
 ```
 
 ### Build Docker Image
