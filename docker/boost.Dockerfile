@@ -1,10 +1,10 @@
 FROM ubuntu:22.04
 
-ARG BOOST_VERSION=1.80.0
-ARG CMAKE_VERSION=3.25.1
+ARG BOOST_VERSION=1.85.0
+ARG CMAKE_VERSION=3.30.1
 ARG NUM_JOBS=8
 
-ENV DEBIAN_FRONTEND noninteractive
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install package dependencies
 RUN apt-get update && \
@@ -30,9 +30,9 @@ RUN apt-get update && \
 
 # System locale
 # Important for UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV LANG en_US.UTF-8
-ENV LANGUAGE en_US.UTF-8
+ENV LC_ALL=en_US.UTF-8
+ENV LANG=en_US.UTF-8
+ENV LANGUAGE=en_US.UTF-8
 
 # Install CMake
 RUN cd /tmp && \
