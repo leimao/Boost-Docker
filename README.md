@@ -26,7 +26,7 @@ $ docker buildx create --use --name cross-platform-build
 $ docker buildx build -f docker/boost.Dockerfile --build-arg BOOST_VERSION=${BOOST_VERSION} --platform linux/amd64,linux/arm64 -t leimao/boost:${BOOST_VERSION} --push .
 ```
 
-### Pull Docker Container
+### Pull Docker Image
 
 ```bash
 $ docker pull leimao/boost:${BOOST_VERSION}
@@ -35,7 +35,7 @@ $ docker tag leimao/boost:${BOOST_VERSION} boost:${BOOST_VERSION}
 
 ### Run Docker Container
 
-```bas
+```bash
 $ docker run -it --rm -v $(pwd):/mnt boost:${BOOST_VERSION}
 ```
 
