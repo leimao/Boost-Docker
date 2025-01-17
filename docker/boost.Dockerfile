@@ -1,7 +1,7 @@
 FROM ubuntu:24.04
 
-ARG BOOST_VERSION=1.84.0
-ARG CMAKE_VERSION=3.30.1
+ARG BOOST_VERSION=1.87.0
+ARG CMAKE_VERSION=3.31.4
 ARG NUM_JOBS=8
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -48,7 +48,7 @@ RUN cd /tmp && \
 # https://www.boost.org/doc/libs/1_80_0/more/getting_started/unix-variants.html
 RUN cd /tmp && \
     BOOST_VERSION_MOD=$(echo $BOOST_VERSION | tr . _) && \
-    wget https://boostorg.jfrog.io/artifactory/main/release/${BOOST_VERSION}/source/boost_${BOOST_VERSION_MOD}.tar.bz2 && \
+    wget https://archives.boost.io/release/${BOOST_VERSION}/source/boost_${BOOST_VERSION_MOD}.tar.bz2 && \
     tar --bzip2 -xf boost_${BOOST_VERSION_MOD}.tar.bz2 && \
     cd boost_${BOOST_VERSION_MOD} && \
     ./bootstrap.sh --prefix=/usr/local && \
